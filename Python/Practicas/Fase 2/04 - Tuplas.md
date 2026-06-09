@@ -56,5 +56,5 @@ Recorrer la estructura y mostrar
 ```
 Empleado: Juan - Edad: 25
 Empleado: María - Edad: 31
-Empleado: Pedro - Edad: 28
+Empleado: Pedro - Edad: 29
 ```
