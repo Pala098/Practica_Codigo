@@ -1,4 +1,4 @@
 %% Begin Waypoint %%
-- **[[Fase 1]]**
+- [[01 - Relaciones entre tablas]]
 
 %% End Waypoint %%

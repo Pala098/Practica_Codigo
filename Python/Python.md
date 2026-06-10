@@ -1,4 +1,5 @@
 %% Begin Waypoint %%
-- **[[Fase 1]]**
+- **[[Fase 2]]**
+- **[[Practicas]]**
 
 %% End Waypoint %%

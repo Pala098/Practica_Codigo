@@ -1,5 +1,4 @@
 %% Begin Waypoint %%
-- **[[Fase 2]]**
 - [[Ciclo for]]
 - [[Ciclo while]]
 - [[Condicionales]]
