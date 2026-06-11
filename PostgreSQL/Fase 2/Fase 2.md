@@ -1,5 +1,4 @@
 %% Begin Waypoint %%
-- **[[Fase 1]]**
-- **[[Fase 2]]**
+- [[01 - Select]]
 
 %% End Waypoint %%
