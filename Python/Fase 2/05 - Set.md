@@ -12,10 +12,41 @@ invitados = {
 Mostrar: 
 - el set completo
 - cantidad de invitados únicos
+
+```python
+invitados = {
+	'Juan',
+	'Pedro',
+	'Juan',
+	'Maria',
+	'Pedro'
+}
+
+for x in invitados:
+	print(x)
+
+print(f'Cantidad de invitados unicos: {len(invitados)}')
+```
+
 ## 2. Registro de cursos
 Crear un set vacío, solicitar 5 nombres de cursos.
 Agregar cada curso utilizando -> `add()`
 Al finalizar mostrar todos los cursos registrados.
+
+```python
+nombres_curso = set()
+contador = 0
+
+while contador <= 5:
+	nombre = input(f'Ingrese el nombre del curso: ').capitalize()
+	nombres_curso.add(nombre)
+	contador += 1
+	print(f'Dato cargado...\n')
+
+for curso in nombres_curso:
+	print(f'- {curso}')
+```
+
 ## 3. Búsqueda de usuario
 Crear un set:
 ```
@@ -30,6 +61,20 @@ Solicitar un usuario.
 Indicar:
 - usuario encontrado
 - usuario no encontrado
+
+```python
+usuarios = {
+	'Admin',
+	'Diana',
+	'Maria',
+	'Juan'
+}
+
+usuario = input('Ingrese su usuario: ').capitalize()
+
+print(f'El usuario existe? --> {usuario in usuarios}')
+```
+
 ## 4. Cliente únicos
 Crear una lista:
 ```
