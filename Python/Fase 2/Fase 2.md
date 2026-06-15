@@ -4,5 +4,6 @@
 - [[03 - Listas]]
 - [[04 - Tuplas]]
 - [[05 - Set]]
+- [[06 - Diccionarios]]
 
 %% End Waypoint %%
