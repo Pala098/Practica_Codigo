@@ -5,5 +5,6 @@
 - [[04 - Tuplas]]
 - [[05 - Set]]
 - [[06 - Diccionarios]]
+- [[07 - Built-in Functions]]
 
 %% End Waypoint %%
