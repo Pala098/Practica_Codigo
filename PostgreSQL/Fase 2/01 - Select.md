@@ -18,3 +18,28 @@ SELECT nombre FROM productos; --✖
 ```sql
 select producto, precio from productos;
 ```
+## Ronda de consolidación
+1. Mostrar únicamente las ciudades de los clientes.
+
+```sql
+select ciudades from clientes; # ✖ --> 'ciudad'
+```
+
+2. Mostrar:
+	- id_cliente
+	- nombre
+	De la tabla clientes
+
+```sql
+select id_cliente, nombre from clientes;
+```
+
+3. Mostrar:
+	- id_producto
+	- producto
+	- precio
+	De la tabla productos.
+
+```sql
+select id_producto, producto, precio from productos;
+```
