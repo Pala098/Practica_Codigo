@@ -6,6 +6,28 @@ Al finalizar mostrar:
 - venta mas baja
 - cantidad de ventas
 Utilizar funciones integradas.
+
+```python
+importes = []
+decorador = '-' * 15
+
+for i in range(0,5):
+	importe = float(input(f'Ingrese el importe Nro. {i + 1}: '))
+	
+	importes.append(importe)
+	
+	print(f'Importe cargado...')
+
+# total vendido
+print(f'Total vendido: ${sum(importes):.2f}')
+print(decorador)
+print(f'Venta mas alta: ${max(importes)}')
+print(decorador)
+print(f'Venta mas baja: ${min(importes)}')
+print(decorador)
+print(f'Cantidad de ventas: {len(importes)}')
+```
+
 ## 2. Ranking de alumnos
 Solicitar 5 nombres de alumnos, guardar en una lista y mostrar los nombres ordenados alfabéticamente.
 Luego numerarlos, y mostrar: 
@@ -15,6 +37,23 @@ Luego numerarlos, y mostrar:
 3. María
 ...
 ```
+
+```python
+nombres = []
+decorador = '-' * 15
+
+for i in range(0,5):
+	nombre = input(f'Ingrese el nombre del alumno Nro. {i + 1}: ')
+	nombres.append(nombre)
+	print(decorador)
+	print('Alumno cargado...')
+	print(decorador)
+print('Listado de alumnos: ')
+
+for alumno in sorted(nombres):
+	print(f'- {alumno}')
+```
+
 ## 3. Inventario
 Registrar 4 productos, guardar sus precios en una lista.
 Mostrar:
