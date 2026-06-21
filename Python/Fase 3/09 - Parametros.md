@@ -43,6 +43,54 @@ y muestre un resumen de la operación.
 Probar la función con varios clientes.
 
 ```python
+def mostrar_menu(aux): # --> funcion que muestra el menu
+	print(f'..:: MENU ::..\n{aux}\n1. Cargar un producto\n0. Salir y mostrar resumen\n')
+
+def calculo_imp_total(cantidad, valor):
+	total = cantidad * valor
+	producto['total'] = total
+	
+def mostrar_resumen(lista,aux):
+	print(f'..:: RESUMEN DE COMPRA ::..\n{aux}')
+	for dato in lista:
+		print(f'- Nombre cliente: {dato['nombre']}\nCantidad productos: {dato['cantidad']}\n Importe total: {dato['total']}\n{aux}')
+		
+
+deco = '-' * 20
+ventas_list = [] # --> lista vacia para guardar los datos
+
+opcion = 1 # --> opcion para cortar con el ciclo o cargar un nuevo producto
+
+while opcion != 0:
+	mostrar_menu(deco)
+	print(deco)
+	opcion = int(input('Seleccione un opcion: '))
+	
+	if opcion == 1:
+		producto = {}
+		
+		nombre_cli = input('Ingrese nombre: ')
+		cant_prod = int(input('Ingrese la cantidad de productos: '))
+		impor_uni = float(input('Ingrese el importe individual: '))
+		
+		producto['nombre'] = nombre_cli
+		producto['cantidad'] = cant_prod
+		calculo_imp_total(cant_prod, impor_uni)
+		
+		ventas_list.append(producto)
+		print(f'{deco}\nVenta cargada correctamente...\n{deco}')
+	elif opcion == 0:
+		mostra_resumen(ventas_list,deco)
+		print(f'\nSaliendo del programa...')
+		break
+	else:
+		print('Opcion erronea.\nSaliendo del programa...')
+		break
+	
+```
+
+
+```python
 def calculo_total(cant_prod, precio_ind):
 	total = cant_prod * precio_ind
 
