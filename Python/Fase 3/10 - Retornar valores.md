@@ -3,11 +3,8 @@ Una empresa registra la cantidad vendida y el precio unitario de un producto.
 Construir una función que realice el calculo correspondiente y permita la reutilizarla para distintas ventas.
 Luego registrar 5 ventas y mostrar el total de cada una.
 
-> [!quote|borde] Lista de tareas
-> - [x] registrar cantidades vendidas
-> - [x] registrar el precio unitario de un producto
-> - [x] función para calcular y reutilizable
-> - [x] registrar 5 ventas, mostrar el total de cada una
+> [!quote|borde] Estado
+> - [x] Completado
 
 ```python
 def mostrar_menu(opcion,aux):  
@@ -79,6 +76,9 @@ Reglas:
 - debe ser mayor o igual a 18 años
 - debe poseer entrada
 Probar la función con varios casos.
+>[!quote|borde] Estado
+>- [x] Completado
+
 
 ```python
 def puede_ingresar(edad,entrada):  
@@ -117,6 +117,8 @@ resultado = puede_ingresar(edad,entrada)
 Registrar temperaturas de varios días.
 Construir una función que permita obtener el promedio de una colección de temperaturas.
 Mostrar el resultado final.
+>[!quote|borde] Estado
+>- [ ] Completado
 
 ```python
 def mostrar_menu(opcion,aux):  
