@@ -118,7 +118,7 @@ Registrar temperaturas de varios días.
 Construir una función que permita obtener el promedio de una colección de temperaturas.
 Mostrar el resultado final.
 >[!quote|borde] Estado
->- [ ] Completado
+>- [x] Completado
 
 ```python
 def mostrar_menu(opcion,aux):  
@@ -138,6 +138,8 @@ def cargar_temperatura(lista,aux,contador):
   dato = float(input('Ingrese el valor del temperatura: '))  
   
   temperatura['valor'] = dato  
+  
+  
   
   lista.append(temperatura)  
   print(f'{aux}\n'  
@@ -187,6 +189,61 @@ while opcion != 0:
     mostrar_listado_dias(list_dias_temperaturas,deco)
 ```
 
+
+```python
+# version2
+def mostrar_menu(opcion,aux):  
+  opcion = int(input(f'..:: MENU ::..\n'    
+                     f'{aux}\n'    
+                     f'1. Cargar temperaturas\n'    
+                     f'2. Mostrar promedio\n'    
+                     f'0. Salir\n'    
+                     f'{aux}\n'    
+                     f'Seleccione una opcion: '))  
+  return opcion  
+  
+def pedir_cantidad_dias(aux):  
+  print(f'..:: CARGAR TEMPERATURAS ::..\n{aux}')  
+  can_dias = int(input('Ingrese la cantidad de dias que va a registrar: '))  
+  print(aux)  
+  return can_dias  
+  
+def cargar_temperaturas(lista,dias,aux):  
+  for i in range(dias):  
+    dato = float(input(f'Ingrese la temperatura del dia {i + 1}: '))  
+    lista.append(dato)  
+  print(f'{aux}\nDatos cargados...\n{aux}')  
+  
+def mostrar_promedio(lista,aux):  
+  suma = 0  
+  print(f'..:: MOSTRAR PROMEDIO ::..\n{aux}')  
+  for i in range(len(lista)):  
+    suma += lista[i]  
+  promedio = suma / len(lista)  
+  return print(f'El promedio es: {promedio:.2f}')  
+  
+# lista  
+lista_dias_temperatura = []  
+  
+  
+# variables  
+deco = '-' * 25  
+contador_dia = 0  
+opcion = 1  
+  
+while opcion != 0:  
+  opcion = mostrar_menu(opcion,deco) # ✔  
+  if opcion == 1:  
+    dias = pedir_cantidad_dias(deco)  
+    cargar_temperaturas(lista_dias_temperatura,dias,deco)  
+    mostrar_promedio(lista_dias_temperatura,deco)  
+  elif opcion == 0:  
+    print(f'{deco}\nSaliendo del sistema..\n{deco}')  
+    break  
+  else:  
+    print(f'{deco}\nValor ingresado no valido!\n{deco}')
+```
+
 ## 4. Registro de empleados
 Crear una función que reciba:
 - nombre
@@ -195,6 +252,79 @@ Crear una función que reciba:
 y genere la estructura de datos correspondiente para representar un empleado.
 Registrar varios empleados utilizando esa función.
 Finalmente mostrar el listado completo.
+
+```python
+def mostrar_menu(opcion,aux):  
+  opcion = int(input(f'..:: MENU ::..\n'      
+                     f'{aux}\n'      
+                     f'1. Cargar empleado\n'      
+                     f'2. Mostrar lista de empleados\n'      
+                     f'0. Salir\n'      
+                     f'{aux}\n'      
+                     f'Seleccione una opcion: '))  
+  return opcion  
+  
+def cargar_empleado(lista,aux):  
+  print(f'{aux}\n..:: CARGAR EMPLEADO ::..\n{aux}')  
+  salir = False  
+  contador = 0  
+  while not salir :  
+    empleado = {}  
+    contador += 1  
+    print(f'Datos empleado {contador}\n{aux}')  
+  
+    nombre = input('Ingrese nombre del empleado: ').capitalize()  
+    apellido = input('Ingrese apellido del empleado: ').capitalize()  
+    sector = input('Ingrese sector de trabajo: ').capitalize()  
+  
+    empleado['nombre'] = nombre  
+    empleado['apellido'] = apellido  
+    empleado['sector'] = sector  
+  
+    lista.append(empleado)  
+    print(f'{aux}\nDatos cargados...\n{aux}')  
+  
+    opcion = int(input(f'Cargar otro empleado ?\n'  
+                       f'1. Si\n'  
+                       f'2. No\n'  
+                       f'{aux}\n'  
+                       f'Seleccione una opcion: '))  
+    print(aux)  
+  
+  
+    if opcion == 2:  
+      salir = True  
+      break  
+def mostrar_lista_empleados(lista,aux):  
+  print(f'{aux}\n..:: MOSTRAR LISTA EMPLEADOS ::..\n{aux}\n'  
+        f'-- cantidad total de empleados: {len(lista)} --\n{aux}')  
+  for i in range(len(lista)):  
+    print(f'DATOS EMPLEADO {i + 1}\n{aux}')  
+    print(f'- Nombre: {lista[i]["nombre"]}\n'  
+          f'- Apellido: {lista[i]["apellido"]}\n'  
+          f'- Sector: {lista[i]["sector"]}\n{aux}')  
+  
+  
+# lista  
+lista_empleados = []  
+  
+# variables  
+deco = '-' * 25  
+opcion = 1  
+  
+while opcion != 0:  
+  opcion = mostrar_menu(opcion,deco)  
+  
+  if opcion == 1:  
+    cargar_empleado(lista_empleados,deco)  
+  elif opcion == 2:  
+    mostrar_lista_empleados(lista_empleados,deco)  
+  elif opcion == 0:  
+    print(f'{deco}\nSaliendo del sistema...\n{deco}')  
+  else:  
+    print(f'{deco}\nValor incorrecto...\n{deco}')
+```
+
 ## 5. Resumen comercial
 Registrar productos vendidos.
 Para cada producto almacenar:
