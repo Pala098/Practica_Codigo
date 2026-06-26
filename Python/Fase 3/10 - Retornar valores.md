@@ -338,6 +338,95 @@ Al finalizar mostrar:
 - listado de productos vendidos
 - importe total por producto
 - facturación general
+
+```python
+def mostrar_menu(aux):  
+  opcion = int(input(f'..:: MENU ::..\n'        
+                     f'{aux}\n'        
+                     f'1. Cargar producto\n'        
+                     f'2. Mostrar listado de productos\n'        
+                     f'3. Mostrar importe total por producto\n'  
+                     f'4. Mostrar factura general\n'  
+                     f'0. Salir\n'        
+                     f'{aux}\n'        
+                     f'Seleccione una opcion: '))  
+  return opcion  
+  
+def cargar_producto(lista,aux):  
+  print(f'..:: CARGAR PRODUCTO ::..\n{aux}\n'  
+        f'-- productos cargados: {len(lista)} --\n{aux}')  
+  
+  opcion = 1  
+  
+  while opcion == 1:  
+    producto = {}  
+  
+    nombre = input('Ingrese el nombre del producto: ').capitalize()  
+    cantidad = int(input('Ingrese la cantidad de producto: '))  
+    precio = float(input('Ingrese el precio del producto: '))  
+    imp_total = cantidad * precio  
+  
+    producto['nombre'] = nombre  
+    producto['cantidad'] = cantidad  
+    producto['precio'] = precio  
+    producto['total'] = imp_total  
+  
+    lista.append(producto)  
+    print(f'Producto cargado exitosamente!\n'  
+          f'{aux}')  
+    opcion = int(input(f'Cargar otro producto ?\n'  
+                       f'1. Si\n'  
+                       f'0. No\n'  
+                       f'{aux}\n'  
+                       f'Seleccione una opcion: '))  
+  
+def mostrar_list_prod_vendidos(lista,aux):  
+  print(f'..:: LISTADO DE PRODUCTOS VENDIDOS ::..\n{aux}')  
+  for i in range(len(lista)):  
+    print(f'-- PRODUCTO - {i + 1} --\n'  
+          f'- Nombre: {lista[i]["nombre"]}\n'  
+          f'- Cantidad: {lista[i]["cantidad"]}\n{aux}')  
+  print(f'-- fin listado de productos vendidos --\n{aux}\n')  
+  
+def mostrar_imp_total_prod(lista,aux):  
+  print(f'..:: IMPORTE TOTAL POR PRODUCTO ::..\n{aux}')  
+  for i in range(len(lista)):  
+    print(f'-- PRODUCTO - {i + 1} --\n'  
+          f'- Nombre: {lista[i]["nombre"]}\n'  
+          f'- Cantidad: {lista[i]["cantidad"]}\n{aux}\n'  
+          f'IMPORTE TOTAL: ${lista[i]["total"]:.2f}\n{aux}')  
+  print(f'-- fin listado de productos vendidos --\n{aux}\n')  
+  
+def factura_general(lista,aux):  
+  print(f'..:: FACTURA GENERAL ::..\n{aux}')  
+  imp_total = 0  
+  for i in range(len(lista)):  
+    imp_total += lista[i]["total"]  
+  
+  print(f'Cantidad de productos: {len(lista)}\n{aux}\n'  
+        f'TOTAL: ${imp_total:.2f}\n{aux}')  
+lista_productos = []  
+  
+# variables  
+deco = '-' * 25  
+opcion = 0  
+  
+while True:  
+  opcion = mostrar_menu(deco)  
+  
+  if opcion == 1:  
+    cargar_producto(lista_productos,deco)  
+  elif opcion == 2:  
+    mostrar_list_prod_vendidos(lista_productos,deco)  
+  elif opcion == 3:  
+    mostrar_imp_total_prod(lista_productos,deco)  
+  elif opcion == 4:  
+    factura_general(lista_productos,deco)  
+  elif opcion == 0:  
+    print(f'Saliendo del sistema...')  
+    break
+```
+
 ## Desafío de razonamiento
 Sin ejecutar:
 ```python
@@ -350,7 +439,113 @@ print(resultado)
 ```
 Preguntas:
 1. ¿Qué valor devuelve la función?
+	La función devuelve el resultado de la operación a + b
 2. ¿Qué valor queda almacenado en `resultado`?
+	El valor que devuelve la función, en este caso la suma de los parámetros que se le pasa.
 3. ¿Qué imprime el programa?
+	El programa imprime 30.
 4. ¿Qué ocurriría si reemplazáramos `return a + b` por `print(a + b)`?
+	Se generara un erro porque no podemos asignar un print a una variable, ya que el codigo indica que se esta cargando lo que devuelva la función a la variable resultado.
 5. ¿Cuál es la diferencia conceptual entre mostrar un dato y devolver un dato?
+	Mostrar un dato es simplemente eso mostrarlo, no se puede realizar ningún tipo de manipulación sobre este mas que visual, devolver un dato implica que se puede utilizar este valor para cualquier operación que se requiera y además también mostrarlo.
+
+---
+## 1. Calcular descuento
+Una tienda ofrece un **15% de descuento** sobre el precio de un producto.
+Debes crear las funciones necesarias para que el programa:
+1. Solicite al usuario el precio original del producto.
+2. Calcule el precio final con el descuento.
+3. Muestre el resultado al usuario.
+>[!info|borde] Condición importante
+>La función encargada del cálculo **no debe mostrar nada por pantalla**. Su única responsabilidad es realizar el cálculo y entregar el resultado.
+>Piensa qué función debería usar `return` y cuál debería usar `print()`.
+
+```python
+def soli_precio():  
+  precio = float(input("Ingrese el precio de la compra: $"))  
+  return precio  
+  
+def descuento_15(precio):  
+  calc_des = precio * 0.15  
+  return calc_des  
+  
+def precio_final(precio,descuento):  
+  calc_des = precio - descuento  
+  return calc_des  
+  
+def mostrar_datos(precio,descuento,total,aux):  
+  print(f'Importe: ${precio:.2f}\n'  
+        f'Descuento 15%: ${descuento:.2f}\n'  
+        f'{aux}\n'  
+        f'Importe total: ${total:.2f}\n')  
+  
+  
+deco = '-' * 25  
+  
+print(f'..:: CALCULADORA DE DESCUENTO ::..\n{deco}')  
+precio = soli_precio()  
+descuento = descuento_15(precio)  
+total = precio_final(precio,descuento)  
+mostrar_datos(precio,descuento,total,deco)
+```
+
+## 2. Clasificación de notas
+Una academia necesita clasificar a sus alumnos según la nota obtenida.
+Reglas:
+- 7 o más → **Aprobado**
+- Menor a 7 → **Desaprobado**
+El programa debe:
+1. Solicitar una nota.
+2. Obtener la clasificación.
+3. Mostrar el resultado.
+>[!info|borde] Condición importante
+>La función que decide si el alumno aprobó o desaprobó **no debe imprimir el texto**. Debe entregar el resultado para que otra parte del programa decida qué hacer con él.
+
+```python
+def solicitar_nota():  
+  nota = float(input('Ingrese su nota (0-10): '))  
+  return nota  
+  
+def clasificar_nota(nota):  
+  if nota >= 0 and nota <= 10:  
+    if nota >=0 and nota < 6:  
+      return 'Desaprobado'  
+    elif nota >= 6 and nota < 10:  
+      return 'Aprobado'  
+  else:  
+    return 'ERROR: dato fuera de rango!'  
+  
+deco = '-' * 25  
+  
+print(f'..:: CLASIFICADOR DE NOTAS ::..\n{deco}')  
+nota = solicitar_nota()  
+resultado = clasificar_nota(nota)  
+print(f'Resultado: {resultado}')
+```
+
+## 3. Registro de productos
+Una tienda quiere registrar varios productos.
+De cada uno se conoce:
+- nombre
+- precio
+- stock
+Debes construir una función que reciba esos datos y **genere el diccionario correspondiente**.
+Luego:
+- guardar cada producto en una lista;
+- al finalizar, mostrar el listado completo.
+>[!info|borde] Condición importante
+>La función que crea el producto **no debe agregarlo a la lista ni mostrar mensajes**. Debe limitarse a construir el diccionario y devolverlo.
+
+## Razonamiento
+Sin escribir código, responde únicamente con el concepto.
+Imagina esta función:
+
+```python
+def calcular_promedio(notas):    
+	promedio = sum(notas) / len(notas)    
+	return promedio
+```
+
+Ahora responde:
+1. ¿Por qué sería un mal diseño que esta función hiciera `print(promedio)` en lugar de `return promedio`?
+2. Menciona **dos situaciones distintas** en las que el valor devuelto podría reutilizarse sin modificar la función.
