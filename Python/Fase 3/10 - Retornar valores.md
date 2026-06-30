@@ -536,6 +536,52 @@ Luego:
 >[!info|borde] Condición importante
 >La función que crea el producto **no debe agregarlo a la lista ni mostrar mensajes**. Debe limitarse a construir el diccionario y devolverlo.
 
+```python
+def crear_producto(nombre, precio, stock):
+    producto = {}
+
+    producto['nombre'] = nombre
+    producto['precio'] = precio
+    producto['stock'] = stock
+
+    return producto
+
+def cargar_producto(producto, lista):
+    lista.append(producto)
+    print('Producto cargado...')
+
+def pedir_datos():
+    nombre = input('Nombre producto: ')
+    precio = float(input('Precio: $'))
+    stock = int(input('Cantidad: '))
+
+    return nombre,precio,stock
+
+def mostrar_productos(lista):
+    for i in range(len(lista)):
+        print(f'{i + 1}. {lista[i]['nombre']}\n'
+              f'- Cantidad: {lista[i]['stock']}\n'
+              f'- Precio: ${lista[i]['precio']:.2f}\n')
+
+lista_producto = []
+
+opcion = 1
+
+while True:
+
+    if opcion == 1:
+        nombre, precio, stock = pedir_datos()
+        producto = crear_producto(nombre, precio, stock)
+        cargar_producto(producto, lista_producto)
+    else:
+        mostrar_productos(lista_producto)
+        break
+    opcion = int(input(f'Cargar nuevo producto ?\n'
+                       f'1. Si\n'
+                       f'0. No\n'
+                       f'Seleccione una opcion: '))
+```
+
 ## Razonamiento
 Sin escribir código, responde únicamente con el concepto.
 Imagina esta función:
@@ -548,4 +594,7 @@ def calcular_promedio(notas):
 
 Ahora responde:
 1. ¿Por qué sería un mal diseño que esta función hiciera `print(promedio)` en lugar de `return promedio`?
+	Porque en el caso de quere utilizar el dato de promedio con print solo podremos visualizarlo sin manipularlo, y en cambio return devuelve el valor numerico y lo podemos utilizar en otro procedimiento.
 2. Menciona **dos situaciones distintas** en las que el valor devuelto podría reutilizarse sin modificar la función.
+	Mostrar el promedio al usuario, asignando el valor a una variable.
+	Utilizarlo en alguna operación donde se necesite el valor numérico de el resultado de la función.
