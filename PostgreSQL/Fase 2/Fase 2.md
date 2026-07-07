@@ -6,5 +6,7 @@
 - [[05 - Limit]]
 - [[06 - Like]]
 - [[07 - In]]
+- [[08 - Between]]
+- [[09 - Is Null]]
 
 %% End Waypoint %%

@@ -129,10 +129,95 @@ Cada producto tiene:
 - nombre
 - stock
 El sistema debe permitir:
-- registrar productos
-- aumentar el stock de un producto existente
-- disminuir el stock
-- mostrar el inventario
+- [x] registrar productos
+- [x] aumentar el stock de un producto existente
+- [x] disminuir el stock
+- [x] mostrar el inventario
+
+```python
+lista_productos = []  
+  
+def mostrar_menu():  
+  opcion = int(input(f'1. Registrar producto\n'  
+                     f'2. Aumentar stock\n'  
+                     f'3. Disminuir stock\n'  
+                     f'4. Mostrar inventario\n'  
+                     f'0. Salir\n'  
+                     f'Seleccione una opcion: '))  
+  
+  return opcion  
+#---  
+def crear_producto(nombre,stock):  
+  producto = {}  
+  
+  producto['nombre'] = nombre  
+  producto['stock'] = stock  
+  
+  return producto  
+#---  
+def pedir_datos_prod():  
+  nombre = input('Ingrese el nombre del producto: ').capitalize()  
+  stock = int(input('Ingrese el stock del producto: '))  
+  return nombre, stock  
+#---  
+def cargar_productos(lista,producto):  
+  lista.append(producto)  
+  print(f'Producto cargado...')  
+#---  
+def aumentar_stock(lista):  
+  for i in range(len(lista)):  
+    print(f'{i+1}. {lista[i]["nombre"]}')  
+  
+  opc_prod = int(input('Seleccione el producto: '))  
+  cant_aum = int(input('Ingrese la cantidad de stock a aumentar: '))  
+  
+  for i in range(len(lista)):  
+    if opc_prod == (i + 1):  
+      lista[i]['stock'] += cant_aum  
+      print(f'Stock actualizado: {lista[i]["stock"]}')  
+#---  
+def disminuir_stock(lista):  
+  for i in range(len(lista)):  
+    print(f'{i+1}. {lista[i]["nombre"]}')  
+  
+  opc_prod = int(input('Seleccione el producto: '))  
+  cant_dis = int(input('Ingrese la cantidad de stock a disminuir: '))  
+  
+  for i in range(len(lista)):  
+    if opc_prod == (i + 1):  
+      lista[i]['stock'] -= cant_dis  
+      print(f'Stock actualizado: {lista[i]["stock"]}')  
+#---  
+def mostrar_inventario(lista):  
+  print('Lista de productos')  
+  for i in range(len(lista)):  
+    print(f'{i+1}. {lista[i]["nombre"]} - Stock: {lista[i]["stock"]}')  
+  print('Fin de inventario')  
+  
+opcion = 1  
+  
+while opcion != 0:  
+  opcion = mostrar_menu()  
+  
+  if opcion == 1:  
+    nombre,stock = pedir_datos_prod()  
+    producto = crear_producto(nombre,stock)  
+    cargar_productos(lista_productos,producto)  
+  elif opcion == 2:  
+    aumentar_stock(lista_productos)  
+  elif opcion == 3:  
+    disminuir_stock(lista_productos)  
+  elif opcion == 4:  
+    mostrar_inventario(lista_productos)  
+  elif opcion == 0:  
+    print('Saliendo del sistema...')  
+    break  
+  else:  
+    print('Opcion no valida')  
+  
+print(f'Fin del programa')
+```
+
 ---
 ## Desafío de razonamiento
 Analiza el siguiente código sin ejecutarlo.
@@ -149,7 +234,12 @@ print(contador)
 ```
 Responde:
 1. ¿Qué imprime la función `modificar()`?
+	Imprime el valor de el contador pero modificado.
 2. ¿Qué imprime el último `print()`?
+	El ultimo print imprime el valor del contador = 10
 3. ¿Por qué ambas salidas son diferentes?
+	Porque en la función se crea una variable local a esta, que tiene el mismo nombre que la variable global, pero la global tiene otro valor y esta no se ve modificada dentro de la función.
 4. ¿Qué ocurriría si elimináramos la línea `contador = 20` de la función?
+	Imprimiría el valor de la variable local
 5. ¿En qué situación real considerarías usar una variable global y por qué crees que, en la mayoría de los casos, se recomienda evitarlas?
+	Porque a estas variables cualquier función podría modificarlas y esto haría ilegible el programa.
