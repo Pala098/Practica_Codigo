@@ -1,4 +1,7 @@
 %% Begin Waypoint %%
-
+- [[13 - Comprensión de listas]]
+- [[14 - Comprensión de diccionarios]]
+- [[15 - Comprensión de conjuntos]]
+- [[16 - map()]]
 
 %% End Waypoint %%
