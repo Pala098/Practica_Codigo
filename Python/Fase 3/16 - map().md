@@ -5,7 +5,7 @@ Una tienda necesita actualizar todos sus precios aplicando un aumento del **15%*
 precios = [1200, 4500, 9800, 15000, 3200]
 ```
 
-Generá una nueva colección con los precios actualizados.
+Genera una nueva colección con los precios actualizados.
 
 ```python
 precios = [1200, 4500, 9800, 15000, 3200]  
