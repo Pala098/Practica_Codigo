@@ -56,6 +56,19 @@ Preguntas
 	No.
 2. Explica por qué.
 	Porque en SQL existe un orden de ejecución y cuando se ejecuta `where` todavía no existe `count(*)`.
+
+> [!bug|borde] Correccion
+> Correcto, pero hay un detalle interesante.
+> La razón principal no es solamente que existan cuatro ciudades distintas.
+> La clave está en la condición:
+> ```
+> HAVING COUNT(*) >= 1
+> ```
+> Todos los grupos tienen al menos un cliente.
+> Entonces **ningún grupo es eliminado**.
+> Una explicación más completa sería:
+> *`GROUP BY` genera cuatro grupos (uno por ciudad) y `HAVING COUNT(*) >= 1` permite que todos pasen, porque cada grupo tiene al menos un registro.*
+
 3. ¿Qué herramienta debería utilizarse en lugar de `WHERE`?
 	Se debería utilizar `having count(*) > 1`.
 
@@ -90,7 +103,21 @@ Límite (LIMIT):
 Operaciones especiales:
 	- having count(*) > 1
 Observaciones:
+	- Se solicita indetificar las ciudades donde se tenga mas de un cliente.
 ```
+> [!bug|borde] Correccion
+> ### Operaciones especiales
+> Escribiste:
+> `HAVING COUNT(*) > 1`
+> ==Acá haría una pequeña mejora.==
+> Las **operaciones especiales** son las herramientas utilizadas, no la condición completa.
+> Yo escribiría:
+> ```
+> COUNT()
+> GROUP BY
+> HAVING
+> ```
+> Es una diferencia de organización, no de concepto.
 
 > A partir de hoy agregaremos una nueva sección al análisis:
 > 
