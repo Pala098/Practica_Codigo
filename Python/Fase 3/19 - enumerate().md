@@ -37,7 +37,10 @@ def mostrar_lista(lista_ventas):
 mostrar_lista(ventas)
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 0bf49f4 (act-practica-python)
 
 > [!bug|borde] Correccion
 > Solo una pequeña observación de estilo:
@@ -55,6 +58,9 @@ mostrar_lista(ventas)
 > ```
 > Así la función puede reutilizarse con cualquier lista.
 
+<<<<<<< HEAD
+>>>>>>> 0bf49f4 (act-practica-python)
+=======
 >>>>>>> 0bf49f4 (act-practica-python)
 ---
 ## Ejercicio 2 — Inventario
@@ -89,7 +95,10 @@ def mostrar_lista(lista_prod):
 mostrar_lista(productos)
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 0bf49f4 (act-practica-python)
 
 > [!bug|borde] Correccion
 > Exactamente el mismo detalle.
@@ -102,6 +111,9 @@ mostrar_lista(productos)
 > enumerate(lista_prod)
 > ```
 
+<<<<<<< HEAD
+>>>>>>> 0bf49f4 (act-practica-python)
+=======
 >>>>>>> 0bf49f4 (act-practica-python)
 ---
 
@@ -141,7 +153,10 @@ Sector: Ventas
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 0bf49f4 (act-practica-python)
 ```python
 empleados = [
     {
@@ -169,6 +184,9 @@ for numero, empleado in enumerate(empleados, start=1):
 
     print("-" * 20)
 ```
+<<<<<<< HEAD
+>>>>>>> 0bf49f4 (act-practica-python)
+=======
 >>>>>>> 0bf49f4 (act-practica-python)
 ---
 
@@ -220,7 +238,10 @@ def mostrar_datos(list_prod, list_prec):
 mostrar_datos(productos,precios)
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 0bf49f4 (act-practica-python)
 
 > [!bug|borde] Corrección
 > Aquí apareció un pequeño error.
@@ -240,6 +261,9 @@ mostrar_datos(productos,precios)
 > ```
 > Es un pequeño error de variable, muy común.
 
+<<<<<<< HEAD
+>>>>>>> 0bf49f4 (act-practica-python)
+=======
 >>>>>>> 0bf49f4 (act-practica-python)
 ---
 
@@ -325,11 +349,14 @@ Respondé:
 
 1. ¿Qué pares genera `enumerate()`?
 <<<<<<< HEAD
+<<<<<<< HEAD
 2. ¿Por qué el primer número es 5 y no 0?
 3. ¿Qué imprimirá exactamente el programa?
 4. ¿Qué diferencia hay entre usar `start=1` y sumar `+1` al índice dentro del `print()`?
 5. Comparando `range(len(lista))` con `enumerate(lista)`, ¿cuál te parece más legible y por qué?
 =======
+=======
+>>>>>>> 0bf49f4 (act-practica-python)
 	Los pares que genera son:
 	- 5 - Mouse
 	- 6 - Monitor
@@ -384,5 +411,9 @@ Respondé:
 > Parece un detalle pequeño, pero conceptualmente son cosas distintas.
 
 5. Comparando `range(len(lista))` con `enumerate(lista)`, ¿cuál te parece más legible y por qué?
+<<<<<<< HEAD
+	`enumerate(lista)`, porque su sintaxis es mas chica a comparación de `range` y ademas nos permite darle un valor al indice, de ser necesario modificar este también, sin tantas lineas de código.
+>>>>>>> 0bf49f4 (act-practica-python)
+=======
 	`enumerate(lista)`, porque su sintaxis es mas chica a comparación de `range` y ademas nos permite darle un valor al indice, de ser necesario modificar este también, sin tantas lineas de código.
 >>>>>>> 0bf49f4 (act-practica-python)
