@@ -6,15 +6,8 @@
 - [[17 - filter()]]
 - [[18 - zip()]]
 - [[19 - enumerate()]]
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 - [[20 - any() & all()]]
-- [[21 - *args]]
->>>>>>> 0bf49f4 (act-practica-python)
-=======
-- [[20 - any() & all()]]
-- [[21 - *args]]
->>>>>>> 0bf49f4 (act-practica-python)
+- [[21 - args]]
+- [[22 - kwargs]]
 
 %% End Waypoint %%
