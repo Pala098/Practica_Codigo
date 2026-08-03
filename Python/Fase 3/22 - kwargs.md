@@ -27,6 +27,18 @@ stock: 15
 
 Recorré el diccionario usando un `for`.
 
+```python
+def mostrar_datos(**lista):
+    for clave, valor in lista.items():
+        print(f'{clave}: {valor}')
+
+mostrar_datos(
+    nombre = "Mouse",
+    precio = 18000,
+    stock = 15
+)
+```
+
 ---
 ## Ejercicio 2
 *Empleado*
@@ -45,6 +57,33 @@ Luego:
 - imprimir el diccionario completo
 - imprimir solamente el nombre del empleado usando la clave correspondiente.
 
+```python
+def cargar_datos():
+    empleado = {}
+
+    empleado['nombre'] = input('Ingrese su nombre: ')
+    empleado['edad'] = int(input('Ingrese su edad: '))
+    empleado['sector'] = input('Ingrese su sector: ')
+
+    return empleado
+
+def mostrar_datos(**kwargs):
+    print(f'IMPRIMIR DICCIONARIO COMPLETO')
+    for clave, valor in kwargs.items():
+        print(f'{clave}: {valor}')
+
+def mostrar_nombre(**kwargs):
+    print(f'IMPRIMIR SOLO NOMBRE')
+    for clave, valor in kwargs.items():
+        if clave == "nombre":
+            print(f'{clave}: {valor}')
+
+empleado = cargar_datos()
+
+mostrar_datos(**empleado)
+
+mostrar_nombre(**empleado)
+```
 ---
 ## Ejercicio 3
 *Sistema de usuarios*
