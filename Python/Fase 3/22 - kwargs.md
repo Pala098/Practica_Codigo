@@ -84,6 +84,26 @@ mostrar_datos(**empleado)
 
 mostrar_nombre(**empleado)
 ```
+
+> [!bug] Corrección
+> Hay una pequeña mejora posible.
+> En vez de:
+> ```python
+> def mostrar_nombre(**kwargs):
+> for clave, valor in kwargs.items():
+>      if clave == "nombre":
+>               print(valor
+> ```
+> podrías hacer simplemente:
+> ```python
+> def mostrar_nombre(**kwargs):
+> print(kwargs["nombre"])
+> ```
+> o incluso
+> ```python
+> print(kwargs.get("nombre"))
+> ```
+
 ---
 ## Ejercicio 3
 *Sistema de usuarios*
@@ -110,6 +130,48 @@ usuario = crear_usuario(
 ```
 
 Guardar varios usuarios en una lista y luego recorrer la lista mostrando toda la información de cada uno.
+
+```python
+lista_usuarios = []  
+deco = '-' * 25  
+def crear_usuario(**kwargs):  
+  for clave, valor in kwargs.items():  
+    print(clave, valor)  
+  return kwargs  
+  
+def cargar_usuario(lista,usuario):  
+  lista.append(usuario)  
+  print(f'Usuario cargado exitosamente')  
+  
+def mostrar_lista(lista):  
+  for usuario in lista:  
+    print(usuario)  
+  
+  
+  
+  
+print(f'Ingresa datos de usuario:\n'  
+      f'(escribe "si" para cargar datos, "fin" para terminar)\n'  
+      f'{deco}')  
+while True:  
+  entrada = input("> ")  
+  
+  if entrada.lower() == "fin":  
+    break  
+  else:  
+    usuario = crear_usuario(  
+      nombre=input("Ingrese su nombre: "),  
+      edad=input("Ingrese su edad: "),  
+      ciudad=input("Ingrese su ciudad: ")  
+    )    
+    print(usuario)  
+    cargar_usuario(lista_usuarios, usuario)  
+    print(f'Cargar otro usuario ?\n'  
+          f'(escribe "si" para cargar datos, "fin" para terminar)\n'  
+          f'{deco}')  
+  
+mostrar_lista(lista_usuarios)
+```
 
 ---
 ## Ejercicio 4
@@ -153,6 +215,19 @@ registrar_producto(
 
 La función debe mostrar **todas** las claves y valores, sin asumir cuáles existen.
 
+```python
+def registrar_producto(**producto):  
+  for clave, valor in producto.items():  
+    print(f'{clave} -> {valor}')
+    
+registrar_producto(  
+    nombre="Mouse",  
+    precio=18000,  
+    stock=15,  
+    marca="Logitech",  
+    garantia="12 meses"  
+)
+```
 ---
 ## Ejercicio 5
 *Mini sistema de configuración*
@@ -191,6 +266,18 @@ debug : True
 database : postgres
 ```
 
+```python
+def configurar_servidor(**config):  
+  for clave, valor in config.items():  
+    print(f'{clave} -> {valor}')  
+  
+configurar_servidor(  
+    host="localhost",  
+    puerto=8000,  
+    debug=True,  
+    database="postgres"  
+)
+```
 ---
 
 # Desafío de razonamiento
@@ -210,7 +297,15 @@ mostrar(
 
 Respondé:
 1. ¿Qué tipo de dato contiene `datos`?
+	Contiene un diccionario, es decir, clave - valor.
 2. ¿Cuántos elementos tendrá ese objeto?
+	Tendrá un solo elemento.
 3. ¿Qué claves tendrá?
+	Las claves que tendrá son:
+	- nombre
+	- edad
+	- ciudad
 4. ¿Qué ocurriría si llamáramos `mostrar()` sin enviar argumentos?
+	Lo que ocurre es que al no tener datos, nos devolverá nada.
 5. Explicá con tus palabras la diferencia conceptual entre `*args` y `**kwargs`.
+	La diferencia es que `*args` recibe muchos valores, devuelve una tupla y se accede por índice. Mientras que `**kwargs` recibe pares clave-valor, devuelve un diccionario y se accede por clave.
