@@ -4,5 +4,6 @@
 - [[03 - unique]]
 - [[04 - default]]
 - [[05 - check]]
+- [[06 - foreign key]]
 
 %% End Waypoint %%
