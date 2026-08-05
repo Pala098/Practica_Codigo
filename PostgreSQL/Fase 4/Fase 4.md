@@ -5,5 +5,6 @@
 - [[04 - default]]
 - [[05 - check]]
 - [[06 - foreign key]]
+- [[07 - alter table]]
 
 %% End Waypoint %%
