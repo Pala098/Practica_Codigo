@@ -1,0 +1,210 @@
+1. 
+archivo main.py
+import calculadora
+
+num_1 = int(input(f'Ingrese el primer numero:\n'
+                  f'> '))
+num_2 = int(input(f'Ingrese el segundo numero:\n'
+                  f'> '))
+
+print(f'SUMA\n'
+      f'{calculadora.sumar(num_1,num_2)}')
+
+print(f'RESTA\n'
+      f'{calculadora.restar(num_1,num_2)}')
+
+archivo calculadora.py
+def sumar(a,b):
+  return a+b
+
+def restar(a,b):
+  return a-b
+
+2. 
+archivo main.py
+from productos import calcular_iva, calcular_descuento
+
+precio = float(input(f'Ingrese el precio del producto: \n'
+                     f'> '))
+
+precio_final = precio + calcular_iva(precio) + calcular_descuento(precio)
+
+print(f'Precio: ${precio:.2f}\n'
+      f'IVA: ${calcular_iva(precio):.2f}\n'
+      f'Descuento 15%: ${calcular_descuento(precio):.2f}\n'
+      f'PRECIO FINAL: ${precio_final:.2f}\n')
+
+
+archivo productos.py
+def calcular_iva(precio):
+  iva = precio * 0.21
+  return iva
+
+def calcular_descuento(precio):
+  descuento = precio * 0.15
+  return descuento
+
+3. 
+archivo main.py
+import empleados as emp
+
+pago_por_dia = float(input(f'Ingrese el pago diario que recibe: \n> $'))
+
+print(f'Pago diario: ${pago_por_dia:.2f}\n'
+      f'Salario anual aprox.: ${emp.salario_anual(pago_por_dia):.2f}\n'
+      f'Salario mensual aprox.: ${emp.salario_mensual(pago_por_dia):.2f}')
+
+archivo empleados.py
+def salario_anual(salario):
+# Calculo hecho en base al salario diario, sin contar los fines de semana
+  return salario * 276
+
+def salario_mensual(pago):
+# Calculo hecho en base a los dias del mes sin contar los fines de semana
+  return pago * 23
+
+4. 
+archivo main.py
+import inventario
+
+lista_productos = []
+
+while True:
+  entrada = int(input(f'MENU\n'
+                      f'1. Agregar producto\n'
+                      f'2. Mostrar productos\n'
+                      f'3. Buscar producto\n'
+                      f'0. Salir\n'
+                      f'Seleccione una opcion:\n'
+                      f'> '))
+
+  if entrada == 1:
+    inventario.agregar_producto(lista_productos)
+  elif entrada == 2:
+    inventario.mostrar_productos(lista_productos)
+  elif entrada == 3:
+    inventario.buscar_producto(lista_productos)
+  elif entrada == 0:
+    print(f'Saliendo del sistema...')
+    break
+  else:
+    print(f'Opcion incorrecta...')
+
+archivo inventario.py
+def agregar_producto(lista):
+  nombre = input('Ingese el nombre del producto: ')
+  lista.append(nombre)
+  print(f'Produco agregado...')
+
+def mostrar_productos(lista):
+  for producto in lista:
+    print(producto)
+
+def buscar_producto(lista):
+  valor = input(f'Ingrese el producto que busca: \n> ')
+  for producto in lista:
+    if producto.lower() == valor.lower():
+      print(f'El producto existe en el listado.')
+    else:
+      print(f'Producto inexistente !')
+
+5.
+archivo main.py
+import producto, usuario, ventas, utilidades
+
+lista_productos = []
+lista_usuarios = []
+registro_ventas = []
+
+while True:
+  entrada = utilidades.mostrar_menu()
+  if entrada == 1:
+    usuario.cargar_usuario(lista_usuarios)
+  elif entrada == 2:
+    usuario.mostrar_usuarios(lista_usuarios)
+  elif entrada == 3:
+    producto.cargar_producto(lista_productos)
+  elif entrada == 4:
+    producto.mostrar_productos(lista_productos)
+  elif entrada == 5:
+    venta = ventas.registrar_venta(lista_usuarios,lista_productos)
+    registro_ventas.append(venta)
+  elif entrada == 0:
+    print(f'Saliendo del sistema...')
+    break
+  else:
+    print(f'Opcion invalida !')
+
+archivo producto.py
+def cargar_producto(lista):
+  producto = input(f'Ingese el producto: ')
+
+  lista.append(producto)
+  print(f'Producto cargado...')
+
+def mostrar_productos(lista):
+  for producto in lista:
+    print(producto.upper())
+
+archivo usuario.py
+def cargar_usuario(lista):
+  usuario = input(f'Ingese su nombre: ')
+
+  lista.append(usuario)
+  print(f'Usuario cargado...')
+
+def mostrar_usuarios(lista):
+  for usuario in lista:
+    print(usuario.upper())
+
+archivo ventas.py
+def registrar_venta(list_user,list_prod):
+  venta = {}
+
+  print(f'LISTADO DE USUARIOS')
+  for usuario in list_user:
+    print(f'- {usuario}')
+  # opcion_user = input(f'Ingrese el usuario de la lista que se asigna la venta: \n'
+  #                     f'> ')
+  venta["usuario"] = input(f'Ingrese el usuario de la lista que se asigna la venta: \n'
+                          f'> ')
+
+  for venta in list_prod:
+    print(f'- {venta}')
+
+  # opcion_vent = input(f'Ingrese el producto de la lista vendido: \n'
+                      # f'> ')
+  venta["producto"] = input(f'Ingrese el producto de la lista que se asigna a la venta: \n'
+                            f'> ')
+  return venta
+
+archivo utilidades.py
+def mostrar_menu():
+  deco = '-' * 25
+  entrada = int(input(f'..:: MENU ::..\n'
+                  f'{deco}\n'
+                  f'--- usuarios ---\n'
+                  f'1. Cargar usuario\n'
+                  f'2. Mostrar lista de usuarios\n'
+                  f'--- productos ---\n'
+                  f'3. Cargar producto\n'
+                  f'4. Mostrar lista de productos\n'
+                  f'--- ventas ---\n'
+                  f'5. Cargar una venta\n'
+                  f'0. Salir del sistema\n'
+                  f'{deco}\n'
+                  f'Seleccione una opcion:\n'
+                  f'> '))
+  return entrada
+
+Ejercicio razonamiento
+1. ¿Qué archivo se ejecuta primero al iniciar el programa?
+	El archivo que se ejecuta primero es `main.py`.
+2. ¿Qué ocurre cuando Python encuentra `import matematica`?
+	Permite al archivo `main.py` acceder a las funciones dentro del archivo `matematica.py`
+3. ¿Cómo accede `main.py` a la función `multiplicar()`?
+	`main.py` accede a la función `multiplicar()` mediante la invocación`matematica.multiplicar()`
+4. ¿Qué imprimirá el programa?
+	El resultado de ejecutar la función `multiplicar()` con los valores 4 y 6, asignado a la variable resultado. Imprimiendo 12.
+5. ¿Qué ventaja aporta separar `matematica.py` de `main.py` en lugar de escribir todo en un único archivo?
+	Un codigo mas limpio, donde cada archivo se encarga de algo especifico.

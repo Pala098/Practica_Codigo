@@ -9,10 +9,16 @@
 
 		- [[Consigna]]
 	- **03 - alias**
+		- **__pycache__**
+
 		- [[Consigna]]
 	- **04 - inventario**
+		- **__pycache__**
+
 		- [[Consigna]]
 	- **05 - mini sistema back**
+		- **__pycache__**
+
 		- [[Consigna]]
 	- [[06 - Desafío de razonamiento]]
 - [[Leer]]
