@@ -48,3 +48,20 @@ def calcular_descuento(precio):
   return descuento
 
 ```
+
+> [!bug] Corrección
+> Tenés:
+> ```
+> calcular_iva(precio)
+> calcular_descuento(precio)
+> ```
+> pero luego volvés a llamarlas otra vez para imprimir.
+> Normalmente se hace:
+> ```python
+> iva = calcular_iva(precio)
+> descuento = calcular_descuento(precio)
+> total = ...
+> print(iva)
+> print(descuento)
+> ```
+> Se calcula una vez, no varias.

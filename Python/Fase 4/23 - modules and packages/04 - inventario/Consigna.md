@@ -61,3 +61,43 @@ def buscar_producto(lista):
     else:
       print(f'Producto inexistente !')
 ```
+
+> [!bug] Corrección
+> Tenés esto:
+> ```python
+> for producto in lista:
+> 	if producto.lower() == valor.lower():
+> 		print("Existe")
+> 	else:
+> 		print("No existe")
+> ```
+> Esto tiene un problema.
+> Supongamos la lista:
+> ```
+> Mouse
+> Teclado
+> Monitor
+> ```
+> Buscás:
+> ```
+> Monitor
+> ```
+> El programa imprime:
+> ```
+> No existe
+> No existe
+> Existe
+> ```
+> Eso es incorrecto.
+> Lo correcto sería:
+> ```python
+> encontrado = False
+> for producto in lista:
+> 	 if ...
+> 		 encontrado = True
+>  if encontrado:
+> 	 print(...)
+>  else:
+> 	 print(...)
+> ```
+
