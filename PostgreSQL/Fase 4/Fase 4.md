@@ -6,5 +6,6 @@
 - [[05 - check]]
 - [[06 - foreign key]]
 - [[07 - alter table]]
+- [[08 - add column]]
 
 %% End Waypoint %%
